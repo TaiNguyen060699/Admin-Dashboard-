@@ -1,12 +1,26 @@
-import './scss/App.scss'
-import Blank from './pages/Blank';
+import "./assets/libs/boxicons-2.1.1/css/boxicons.min.css";
+import "./scss/App.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Blank from "./pages/Blank";
+import DashBoard from "./pages/DashBoard";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
-    <div className="App">
-      <Blank />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainLayout />}>
+          <Route index element={<DashBoard />} />
+          <Route path='orders' element={<Blank />} />
+          <Route path='products' element={<Blank />} />
+          <Route path='customers' element={<Blank />} />
+          <Route path='settings' element={<Blank />} />
+          <Route path='stats' element={<Blank />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
